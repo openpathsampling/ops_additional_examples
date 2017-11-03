@@ -1,10 +1,13 @@
 #!/bin/bash
 
-for base in $*
+notebooks="$@"
+
+for base in $notebooks
 do
-    echo "$ipynb: looking for ${base}.sh"
-    if [ -e "devtools/prepare/${base}.sh" ]
+    echo "Looking for ${base}.sh...."
+    if [ -e "./devtools/prepare/${base}.sh" ]
     then
+        echo "Running devtools/prepare/${base}.sh"
         ./devtools/prepare/${base}.sh
     fi
 done

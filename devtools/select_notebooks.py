@@ -38,5 +38,4 @@ if __name__ == "__main__":
     ipynbs = find_all_ipynbs(opts.ipynb_directory)
     allowed = ipynbs - skips
 
-    for basename in list(allowed):
-        print(basename)
+    print(" ".join(list(allowed)))
