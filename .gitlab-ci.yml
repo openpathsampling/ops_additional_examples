@@ -8,6 +8,7 @@ before_script:
   - conda install -c omnia ipynbtest
 
 test:
-  - source ./devtools/prepare.sh
-  - echo "hypothetical test"
-  #- for ipynb in *ipynb; do; ipynbtest.py $ipynb; done
+  script:
+      - source ./devtools/prepare.sh
+      - echo "hypothetical test"
+      #- for ipynb in *ipynb; do; ipynbtest.py $ipynb; done
