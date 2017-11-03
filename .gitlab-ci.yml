@@ -13,5 +13,4 @@ test:
       - NOTEBOOKS=`python devtools/select_notebooks.py --skip-file devtools/skip`
       - echo $NOTEBOOKS
       - source ./devtools/prepare.sh $NOTEBOOKS
-      - echo "hypothetical test"
-      #- for ipynb in *ipynb; do; ipynbtest.py $ipynb; done
+      - for ipynb in $NOTEBOOKS; do ipynbtest.py $ipynb; done
