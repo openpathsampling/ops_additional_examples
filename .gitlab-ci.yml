@@ -7,7 +7,7 @@ before_script:
   - cd openpathsampling && pip install -e . && cd ..
   - conda install -c omnia ipynbtest
 
-script:
+test:
   - source ./devtools/prepare.sh
   - echo "hypothetical test"
   #- for ipynb in *ipynb; do; ipynbtest.py $ipynb; done
