@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for ipynb in *ipynb
+for base in $*
 do
     filename=$(basename "$ipynb")
     base="${filename%.*}"
