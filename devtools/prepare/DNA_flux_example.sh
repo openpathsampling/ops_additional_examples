@@ -1,4 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-curl -OLk https://ndownloader.figshare.com/articles/4508975/versions/1
-gunzip 4508975.zip
+figshare_ID=4508975
+version=1
+
+mkdir $figshare_ID
+curl -Lk -o ${figshare_ID}.tgz \
+    https://ndownloader.figshare.com/articles/${figshare_ID}/versions/$version
+tar -xzf ${figshare_ID}.tgz -C $figshare_ID
+
