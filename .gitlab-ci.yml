@@ -7,7 +7,7 @@ before_script:
   - conda uninstall -y openpathsampling
   - git clone https://github.com/openpathsampling/openpathsampling.git
   - cd openpathsampling && pip install -e . && cd ..
-  - conda install -c omnia ipynbtest
+  - conda install -y -c omnia ipynbtest
 
 test:
   script:
