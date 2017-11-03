@@ -1,0 +1,13 @@
+before_script:
+  - source ./devtools/install_conda.sh
+  - conda update -y --all
+  - conda install -c omnia openpathsampling
+  - conda uninstall openpathsampling
+  - git clone https://github.com/openpathsampling/openpathsampling.git
+  - cd openpathsampling && pip install -e . && cd ..
+  - conda install -c omnia ipynbtest
+
+script:
+  - source ./devtools/prepare.sh
+  - echo "hypothetical test"
+  #- for ipynb in *ipynb; do; ipynbtest.py $ipynb; done
