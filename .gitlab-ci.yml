@@ -2,6 +2,7 @@ image: continuumio/miniconda:latest
 
 before_script:
   - conda install -y -c omnia openpathsampling
+  - conda install -y curl
   - conda update -y --all
   - conda uninstall -y openpathsampling
   - git clone https://github.com/openpathsampling/openpathsampling.git
