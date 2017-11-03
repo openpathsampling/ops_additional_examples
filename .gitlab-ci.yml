@@ -1,5 +1,6 @@
+image: continuumio/miniconda:latest
+
 before_script:
-  - source ./devtools/install_conda.sh
   - conda update -y --all
   - conda install -c omnia openpathsampling
   - conda uninstall openpathsampling
