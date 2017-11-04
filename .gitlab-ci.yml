@@ -1,0 +1,18 @@
+image: continuumio/miniconda:latest
+
+before_script:
+  - export PYTHONUNBUFFERED=true
+  - bash ./devtools/conda_ops_dev_install.sh
+  # curl and unzip are used to download figshare files
+  - conda install -y curl
+  - conda install -y -c conda-forge unzip
+  - conda update -y --all
+  - conda install -y -c omnia ipynbtest
+
+test:
+  script:
+    - export MPLBACKEND=PS
+    - NOTEBOOKS=`python devtools/select_notebooks.py --skip-file devtools/skip`
+    # if you only want to test one notebook
+    # - NOTEBOOKS="my_notebook_name"  # without the .ipynb extension!
+    - source ./devtools/run_tests.sh $NOTEBOOKS
