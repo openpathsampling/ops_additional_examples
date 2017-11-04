@@ -78,6 +78,7 @@ simulation = paths.PathSampling(
     sample_set=equil_conditions
 )
 simulation.save_frequency = 100
+simulation.status_update_frequency = 100
 
 simulation.run(10000)
 

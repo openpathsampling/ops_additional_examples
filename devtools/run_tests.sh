@@ -11,5 +11,5 @@ do
         bash ./devtools/prepare/${base}.sh
     fi
     echo "Running ${base}.ipynb"
-    ipynbtest.py ${base}.ipynb
+    ipynbtest.py --timeout 600 ${base}.ipynb
 done
