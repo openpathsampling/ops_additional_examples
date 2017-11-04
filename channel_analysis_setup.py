@@ -61,6 +61,7 @@ print(equil_str)
 equil_sim = paths.PathSampling(storage=equil_store,
                                move_scheme=scheme,
                                sample_set=initial_conditions)
+simulation.status_update_frequency = 200
 equil_sim.run(1000)
 
 equil_conditions = equil_sim.sample_set
@@ -77,8 +78,8 @@ simulation = paths.PathSampling(
     move_scheme=scheme,
     sample_set=equil_conditions
 )
-simulation.save_frequency = 100
-simulation.status_update_frequency = 100
+simulation.save_frequency = 200
+simulation.status_update_frequency = 200
 
 simulation.run(10000)
 
