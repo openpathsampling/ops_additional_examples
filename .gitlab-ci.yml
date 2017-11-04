@@ -1,14 +1,11 @@
 image: continuumio/miniconda:latest
 
 before_script:
-  #- conda install -y -c omnia openpathsampling
+  - bash ./devtools/conda_ops_dev_install.sh
   - conda install -y curl
   - conda install -y -c conda-forge unzip
   - conda update -y --all
-  #- conda uninstall -y openpathsampling
-  #- git clone https://github.com/openpathsampling/openpathsampling.git
-  #- cd openpathsampling && pip install -e . && cd ..
-  #- conda install -y -c omnia ipynbtest
+  - conda install -y -c omnia ipynbtest
 
 test:
   script:
