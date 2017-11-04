@@ -1,18 +1,18 @@
 image: continuumio/miniconda:latest
 
 before_script:
-  - conda install -y -c omnia openpathsampling
+  #- conda install -y -c omnia openpathsampling
   - conda install -y curl
   - conda install -y -c conda-forge libarchive
   - conda update -y --all
-  - conda uninstall -y openpathsampling
-  - git clone https://github.com/openpathsampling/openpathsampling.git
-  - cd openpathsampling && pip install -e . && cd ..
-  - conda install -y -c omnia ipynbtest
+  #- conda uninstall -y openpathsampling
+  #- git clone https://github.com/openpathsampling/openpathsampling.git
+  #- cd openpathsampling && pip install -e . && cd ..
+  #- conda install -y -c omnia ipynbtest
 
 test:
   script:
       - NOTEBOOKS=`python devtools/select_notebooks.py --skip-file devtools/skip`
       - echo $NOTEBOOKS
       - source ./devtools/prepare.sh $NOTEBOOKS
-      - for ipynb in $NOTEBOOKS; do ipynbtest.py ${ipynb}.ipynb; done
+      #- for ipynb in $NOTEBOOKS; do ipynbtest.py ${ipynb}.ipynb; done
