@@ -10,4 +10,6 @@ do
         echo "Running devtools/prepare/${base}.sh"
         bash ./devtools/prepare/${base}.sh
     fi
+    echo "Running ${base}.ipynb"
+    ipynbtest.py ${base}.ipynb
 done

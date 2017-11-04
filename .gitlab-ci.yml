@@ -2,6 +2,7 @@ image: continuumio/miniconda:latest
 
 before_script:
   - bash ./devtools/conda_ops_dev_install.sh
+  # curl and unzip are used to download figshare files
   - conda install -y curl
   - conda install -y -c conda-forge unzip
   - conda update -y --all
@@ -9,8 +10,6 @@ before_script:
 
 test:
   script:
-      - export MPLBACKEND=PS
-      - NOTEBOOKS=`python devtools/select_notebooks.py --skip-file devtools/skip`
-      - echo $NOTEBOOKS
-      - source ./devtools/prepare.sh $NOTEBOOKS
-      #- for ipynb in $NOTEBOOKS; do ipynbtest.py ${ipynb}.ipynb; done
+    - export MPLBACKEND=PS
+    - NOTEBOOKS=`python devtools/select_notebooks.py --skip-file devtools/skip`
+    - source ./devtools/run_tests.sh $NOTEBOOKS
