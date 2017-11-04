@@ -11,6 +11,17 @@ import openpathsampling as paths
 import openpathsampling.engines.toy as toys
 import numpy as np
 
+import argparse
+
+def make_parser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--nsteps', type=int, default=10000)
+    return parser
+
+parser = make_parser()
+opts = parser.parse_args()
+n_steps = opts.nsteps
+
 pes = (toys.OuterWalls([1.0,1.0], [0.0,0.0])
        + toys.Gaussian(-0.7, [30.0, 0.5], [-0.6, 0.0])
        + toys.Gaussian(-0.7, [30.0, 0.5], [0.6, 0.0])
@@ -61,7 +72,7 @@ print(equil_str)
 equil_sim = paths.PathSampling(storage=equil_store,
                                move_scheme=scheme,
                                sample_set=initial_conditions)
-simulation.status_update_frequency = 200
+equil_sim.status_update_frequency = 200
 equil_sim.run(1000)
 
 equil_conditions = equil_sim.sample_set
@@ -71,7 +82,8 @@ equil_traj = equil_conditions[0].trajectory
 init_traj = initial_conditions[0].trajectory
 assert(not equil_traj.is_correlated(init_traj))
 
-print("Setting up the full simulation and running 10000 steps.")
+print("Setting up the full simulation and running" + str(n_steps)
+      + " steps.")
 
 simulation = paths.PathSampling(
     storage=paths.Storage('channel_analysis_sim.nc', 'w'),
@@ -81,7 +93,7 @@ simulation = paths.PathSampling(
 simulation.save_frequency = 200
 simulation.status_update_frequency = 200
 
-simulation.run(10000)
+simulation.run(n_steps)
 
 simulation.storage.save(cv_y)
 simulation.storage.close()
