@@ -72,7 +72,7 @@ print(equil_str)
 equil_sim = paths.PathSampling(storage=equil_store,
                                move_scheme=scheme,
                                sample_set=initial_conditions)
-equil_sim.status_update_frequency = 200
+equil_sim.status_update_frequency = 500
 equil_sim.run(1000)
 
 equil_conditions = equil_sim.sample_set
@@ -82,7 +82,7 @@ equil_traj = equil_conditions[0].trajectory
 init_traj = initial_conditions[0].trajectory
 assert(not equil_traj.is_correlated(init_traj))
 
-print("Setting up the full simulation and running" + str(n_steps)
+print("Setting up the full simulation and running " + str(n_steps)
       + " steps.")
 
 simulation = paths.PathSampling(
