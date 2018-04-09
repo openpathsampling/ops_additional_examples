@@ -11,6 +11,7 @@ before_script:
   - conda update -y --quiet --all
   - conda install -y --quiet -c omnia ipynbtest
   - conda install -y --quiet ipython==5.6
+  - conda list
 
 test:
   script:
@@ -18,4 +19,5 @@ test:
     - NOTEBOOKS=`python devtools/select_notebooks.py --skip-file devtools/skip`
     # if you only want to test one notebook
     # - NOTEBOOKS="my_notebook_name"  # without the .ipynb extension!
+    - NOTEBOOKS="minimal"
     - source ./devtools/run_tests.sh $NOTEBOOKS
