@@ -2,7 +2,8 @@ image: continuumio/miniconda:latest
 
 before_script:
   - export PYTHONUNBUFFERED=true
-  - conda config --add channels conda-forge
+  - conda update -y --quiet -n base conda
+  #- conda config --add channels conda-forge
   - bash ./devtools/conda_ops_dev_install.sh
   # curl and unzip are used to download figshare files
   - conda install -y --quiet curl
