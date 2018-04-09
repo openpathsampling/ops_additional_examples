@@ -8,6 +8,7 @@ before_script:
   - conda install -y --quiet -c conda-forge unzip
   - conda update -y --quiet --all
   - conda install -y --quiet -c omnia ipynbtest
+  - conda install -y --quiet ipython==5.6
 
 test:
   script:
