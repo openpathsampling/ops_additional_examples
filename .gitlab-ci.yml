@@ -18,4 +18,5 @@ test:
     - NOTEBOOKS=`python devtools/select_notebooks.py --skip-file devtools/skip`
     # if you only want to test one notebook
     # - NOTEBOOKS="my_notebook_name"  # without the .ipynb extension!
+    - NOTEBOOKS="resampling_statistics"
     - source ./devtools/run_tests.sh $NOTEBOOKS
