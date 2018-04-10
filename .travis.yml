@@ -2,7 +2,7 @@ before_install:
   - source devtools/install_conda.sh
   - export PYTHONUNBUFFERED=true
   - conda update -y --quiet -n base conda
-  - conda install -y --quiet ipython jupyter jupyter_client
+  - conda install -y --quiet ipython jupyter jupyter_client matplotlib
   - conda update -y --quiet --all
   - conda list
 
