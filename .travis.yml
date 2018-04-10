@@ -1,25 +1,24 @@
+#sudo: required
+
+#services: docker
+
 before_install:
   - source devtools/install_conda.sh
   - export PYTHONUNBUFFERED=true
   - conda update -y --quiet -n base conda
-  - conda install -y --quiet ipython jupyter jupyter_client matplotlib
+  #- conda config --add channels conda-forge
+  - bash ./devtools/conda_ops_dev_install.sh
+  # curl and unzip are used to download figshare files
+  - conda install -y --quiet curl
+  - conda install -y --quiet -c conda-forge unzip
   - conda update -y --quiet --all
+  - conda install -y --quiet -c omnia ipynbtest
   - conda list
 
 
 script:
-  # works when MPLBACKEND is not set
-  - ipython --version
-  - ipython -c "import matplotlib.pyplot as plt"
-  - ipython -c "import has_mpl"
-
-  # works with ipython 5.5 and MPLBACKEND set
-  - conda install -y --quiet ipython==5.5
-  - export MPLBACKEND=PS
-  - ipython -c "import matplotlib.pyplot as plt"
-  - ipython -c "import has_mpl"
-
-  # fails with ipython 5.6 and MPLBACKEND set
-  - conda install -y --quiet ipython==5.6
-  - ipython -c "import matplotlib.pyplot as plt"
-  - ipython -c "import has_mpl"
+  #- export MPLBACKEND=PS
+  - NOTEBOOKS=`python devtools/select_notebooks.py --skip-file devtools/skip`
+  # if you only want to test one notebook
+  # - NOTEBOOKS="my_notebook_name"  # without the .ipynb extension!
+  - source ./devtools/run_tests.sh $NOTEBOOKS
