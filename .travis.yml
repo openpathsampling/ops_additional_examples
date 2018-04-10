@@ -10,17 +10,16 @@ before_install:
 script:
   # works when MPLBACKEND is not set
   - ipython --version
+  - ipython -c "import matplotlib.pyplot as plt"
   - ipython -c "import has_mpl"
-  - ipython simplest.py
 
   # works with ipython 5.5 and MPLBACKEND set
   - conda install -y --quiet ipython==5.5
   - export MPLBACKEND=PS
+  - ipython -c "import matplotlib.pyplot as plt"
   - ipython -c "import has_mpl"
-  - ipython simplest.py
 
   # fails with ipython 5.6 and MPLBACKEND set
   - conda install -y --quiet ipython==5.6
+  - ipython -c "import matplotlib.pyplot as plt"
   - ipython -c "import has_mpl"
-  - ipython simplest.py
-  
