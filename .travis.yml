@@ -18,7 +18,7 @@ before_install:
 
 
 script:
-  - export MPLBACKEND=PS
+  #- export MPLBACKEND=PS
   - NOTEBOOKS=`python devtools/select_notebooks.py --skip-file devtools/skip`
   # if you only want to test one notebook
   # - NOTEBOOKS="my_notebook_name"  # without the .ipynb extension!
