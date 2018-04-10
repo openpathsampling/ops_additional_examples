@@ -9,11 +9,11 @@ before_install:
   #- conda config --add channels conda-forge
   - bash ./devtools/conda_ops_dev_install.sh
   # curl and unzip are used to download figshare files
-  - conda install -y --quiet curl
-  - conda install -y --quiet -c conda-forge unzip
+  #- conda install -y --quiet curl
+  #- conda install -y --quiet -c conda-forge unzip
   - conda update -y --quiet --all
   - conda install -y --quiet -c omnia ipynbtest
-  - conda install -y --quiet ipython==5.6
+  #- conda install -y --quiet ipython==5.6
   - conda list
 
 
