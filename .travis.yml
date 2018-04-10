@@ -1,6 +1,9 @@
-image: continuumio/miniconda:latest
+#sudo: required
 
-before_script:
+#services: docker
+
+before_install:
+  - source devtools/install_conda.sh
   - export PYTHONUNBUFFERED=true
   - conda update -y --quiet -n base conda
   #- conda config --add channels conda-forge
@@ -12,10 +15,10 @@ before_script:
   - conda install -y --quiet -c omnia ipynbtest
   - conda list
 
-test:
-  script:
-    #- export MPLBACKEND=PS
-    - NOTEBOOKS=`python devtools/select_notebooks.py --skip-file devtools/skip`
-    # if you only want to test one notebook
-    # - NOTEBOOKS="my_notebook_name"  # without the .ipynb extension!
-    - source ./devtools/run_tests.sh $NOTEBOOKS
+
+script:
+  #- export MPLBACKEND=PS
+  - NOTEBOOKS=`python devtools/select_notebooks.py --skip-file devtools/skip`
+  # if you only want to test one notebook
+  # - NOTEBOOKS="my_notebook_name"  # without the .ipynb extension!
+  - source ./devtools/run_tests.sh $NOTEBOOKS

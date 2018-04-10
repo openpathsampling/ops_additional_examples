@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python channel_analysis_setup.py --nsteps 2000
+MPLBACKEND=PS python channel_analysis_setup.py --nsteps 2000
