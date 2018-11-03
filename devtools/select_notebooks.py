@@ -6,9 +6,12 @@ import glob
 
 def make_parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--ipynb-directory', type=str, default='.')
-    parser.add_argument('--skip', nargs='+', type=str)
-    parser.add_argument('--skip-file', type=str)
+    parser.add_argument('--ipynb-directory', type=str, default='.',
+                        help='directory to search for notebooks')
+    parser.add_argument('--skip', nargs='+', type=str,
+                        help='notebooks to skip')
+    parser.add_argument('--skip-file', type=str,
+                        help='file containing names of notebooks to skip')
     return parser
 
 def base_filename(filename):

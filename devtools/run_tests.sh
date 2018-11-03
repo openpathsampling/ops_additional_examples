@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Main script for running notebooks, running the prepare script for each
+# notebook first.
+
 notebooks="$@"
 
 for base in $notebooks
