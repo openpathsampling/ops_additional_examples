@@ -31,6 +31,7 @@ git clone https://github.com/${REMOTE}/openpathsampling.git
 pushd openpathsampling
 git fetch
 git checkout $BRANCH
+git pull
 source devtools/conda_install_reqs.sh
 pip install -e .
 popd
