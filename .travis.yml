@@ -11,7 +11,6 @@ before_install:
   # curl and unzip are used to download figshare files
   - conda install -y --quiet curl
   - conda install -y --quiet -c conda-forge unzip
-  - conda update -y --quiet --all
   - conda install -y --quiet -c omnia ipynbtest
   - conda install -y -q -c conda-forge matplotlib
   - conda list
