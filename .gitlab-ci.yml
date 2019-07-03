@@ -6,7 +6,7 @@ before_script:
   # curl and unzip are used to download figshare files
   - conda install -y -q -c conda-forge curl unzip
   #- conda config --add channels conda-forge
-  - $ curl -OLk https://raw.githubusercontent.com/openpathsampling/openpathsampling/master/devtools/conda_ops_dev_install.sh
+  - curl -OLk https://raw.githubusercontent.com/openpathsampling/openpathsampling/master/devtools/conda_ops_dev_install.sh
   - bash ./conda_ops_dev_install.sh
   - conda install -y -q -c omnia ipynbtest
   - conda list
