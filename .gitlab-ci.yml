@@ -9,7 +9,7 @@ before_script:
   #- conda config --add channels conda-forge
   - curl -OLk https://raw.githubusercontent.com/openpathsampling/openpathsampling/master/devtools/conda_ops_dev_install.sh
   - bash ./conda_ops_dev_install.sh
-  - python openpathsampling/devtools/install_recipe_requirements.py --dry openapthsampling/devtools/conda-recipe/meta.yaml
+  - python openpathsampling/devtools/install_recipe_requirements.py --dry openpathsampling/devtools/conda-recipe/meta.yaml
   - conda install -y -q -c omnia ipynbtest
   - conda list
 
