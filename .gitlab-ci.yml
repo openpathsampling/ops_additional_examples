@@ -2,13 +2,13 @@ image: continuumio/miniconda:latest
 
 before_script:
   - export PYTHONUNBUFFERED=true
-  - conda update -y --quiet -n base conda
+  - conda update -y -q -n base conda
   # curl and unzip are used to download figshare files
   - conda install -y -q -c conda-forge curl unzip
   - conda install -y -q matplotlib
   #- conda config --add channels conda-forge
   - curl -OLk https://raw.githubusercontent.com/openpathsampling/openpathsampling/master/devtools/conda_ops_dev_install.sh
-  - bash ./conda_ops_dev_install.sh
+  - source ./conda_ops_dev_install.sh dwhswenson py37
   - DEVTOOLS_DIR="openpathsampling/devtools"
   - PKGS=`python ${DEVTOOLS_DIR}/install_recipe_requirements.py --dry ${DEVTOOLS_DIR}/conda-recipe/meta.yaml`
   - echo $PKGS
