@@ -13,6 +13,7 @@ before_install:
   - conda install -y --quiet -c conda-forge unzip
   - conda update -y --quiet --all
   - conda install -y --quiet -c omnia ipynbtest
+  - conda install -y -q -c conda-forge matplotlib
   - conda list
 
 
