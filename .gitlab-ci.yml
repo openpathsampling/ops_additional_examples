@@ -8,7 +8,7 @@ before_script:
   - conda install -y -q -c conda-forge matplotlib
   - conda install -y -q -c omnia ipynbtest
   - curl -OLk https://raw.githubusercontent.com/openpathsampling/openpathsampling/master/devtools/conda_ops_dev_install.sh
-  - source ./conda_ops_dev_install.sh dwhswenson py37
+  - source ./conda_ops_dev_install.sh
   - conda list
 
 test:
