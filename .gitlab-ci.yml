@@ -1,6 +1,7 @@
 image: continuumio/miniconda:latest
 
 before_script:
+  - . /opt/conda/etc/profile.d/conda.sh && conda activate base
   - export PYTHONUNBUFFERED=true
   - conda update -y -q -n base conda
   # curl and unzip are used to download figshare files
