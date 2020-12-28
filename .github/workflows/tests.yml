@@ -1,0 +1,42 @@
+name: "Test Suite"
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: "0 4 * * *"
+
+defaults:
+  run:
+    shell: bash -l {0}
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    name: "Notebook tests"
+    strategy:
+      matrix:
+        CONDA_PY:
+          - 3.7
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-python: true
+          python-version: ${{ matrix.CONDA_PY }}
+      - name: "Install"
+        run: |
+          conda install -y -q -c conda-forge curl unzip matplotlib
+          conda install -y -q -c omnia ipynbtest
+          curl -OLk https://raw.githubusercontent.com/openpathsampling/openpathsampling/master/devtools/conda_ops_dev_install.sh
+          source ./conda_ops_dev_install.sh
+      - name: "Versions"
+        run: conda list
+      - name: "Tests"
+        run: |
+          NOTEBOOKS=`python devtools/select_notebooks.py --skip-file devtools/skip`
+          source ./devtools/run_tests.sh $NOTEBOOKS
