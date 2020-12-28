@@ -1,0 +1,13 @@
+name: ops-additional-examples
+channels:
+  - conda-forge
+  - omnia
+  - defaults
+dependencies:
+  - jupyter
+  - nglview
+  - openmm
+  - tqdm
+  - openpathsampling
+  - openmmtools
+prefix: /Users/dwhs/miniconda3/envs/ops-additional-examples

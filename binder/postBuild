@@ -1,0 +1,9 @@
+for base in *ipynb
+do
+    if [ -e "./devtools/prepare/${bash}.sh" ]
+    then
+        echo "Running devtools/prepare/${base}.sh"
+        bash ./devtools/prepare/${base}.sh
+    fi
+done
+        
