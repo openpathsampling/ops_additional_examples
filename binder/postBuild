@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+for nb in `ls *ipynb`
+do
+    base="${nb%.ipynb}"
+    echo "$base"
+    if [ -e "./devtools/prepare/${base}.sh" ]
+    then
+        echo "Running devtools/prepare/${base}.sh"
+        bash ./devtools/prepare/${base}.sh
+    fi
+done
+        
