@@ -1,3 +1,6 @@
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/openpathsampling/ops_additional_examples/HEAD)
+![Test Suite](https://github.com/openpathsampling/ops_additional_examples/workflows/Test%20Suite/badge.svg)
+
 # Additional Examples for OpenPathSampling
 
 This repository contains additional examples for OpenPathSampling. It is
