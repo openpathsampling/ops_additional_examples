@@ -30,8 +30,7 @@ jobs:
           python-version: ${{ matrix.CONDA_PY }}
       - name: "Install"
         run: |
-          conda install -y -q -c conda-forge curl unzip matplotlib
-          conda install -y -q -c omnia ipynbtest
+          conda install -y -q -c conda-forge curl unzip matplotlib pytest nbval
           curl -OLk https://raw.githubusercontent.com/openpathsampling/openpathsampling/master/devtools/conda_ops_dev_install.sh
           source ./conda_ops_dev_install.sh
       - name: "Versions"
