@@ -28,6 +28,7 @@ jobs:
         with:
           auto-update-python: true
           python-version: ${{ matrix.CONDA_PY }}
+          miniforge-variant: Mambaforge
       - name: "Install"
         run: |
           conda install -y -q -c conda-forge curl unzip matplotlib pytest nbval
