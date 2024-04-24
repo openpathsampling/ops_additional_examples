@@ -20,7 +20,7 @@ jobs:
     strategy:
       matrix:
         CONDA_PY:
-          - 3.7
+          - "3.10"
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
